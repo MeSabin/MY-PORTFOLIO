@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: poppins;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in {
+        animation: fadeInUp 1s ease-out forwards;
+      }
+
+      .navbar-link.active {
+        color: blue;
+      }
+      .navbar-link:hover {
+        color: blue;
+      }
+      .gridLayout {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+
+      @media screen and (max-width: 700px) {
+        .navbar-link {
+          display: none!important;
+        }
+        .my-name {
+          font-size: 19px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header
+      class="flex justify-between items-center px-20 shadow-xl h-20 fixed top-0 right-0 left-0 z-50 bg-white bg-gradient-to-r from-purple-500 to-pink-300"
+    >
+      <div>
+        <a href="" class="font-bold text-2xl cursor-pointer text-gray-800">
+          <i class="fa-solid fa-code"></i>
+          Sabin
+        </a>
+      </div>
+      <div class="sm:hidden block">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      <div>
+        <ul>
+          <li
+            class="navbar-link home inline-block text-gray-700 font-semibold cursor-pointer duration-200 pb-1 px-3"
+          >
+            <a href="">Home</a>
+          </li>
+          <li
+            class="navbar-link about inline-block text-gray-700 font-semibold cursor-pointer duration-200 pb-1 px-3"
+          >
+            <a href="#about" id="">About</a>
+          </li>
+          <li
+            class="navbar-link projects inline-block text-gray-700 font-semibold cursor-pointer duration-200 pb-1 px-3"
+          >
+            <a href="#projects">Projects</a>
+          </li>
+          <li
+            class="navbar-link skills inline-block text-gray-700 font-semibold cursor-pointer duration-200 pb-1 px-3"
+          >
+            <a href="#skills">Skills</a>
+          </li>
+
+          <li
+            class="navbar-link contact inline-block text-gray-700 font-semibold cursor-pointer duration-200 pb-1 px-3"
+          >
+            <a href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="mb-10" id="home">
+      <!-- first div -->
+      <div
+        class="section pt-36 p-10 bg-gradient-to-r from-purple-500 to-pink-300 text-white"
+      >
+        <div class="flex items-center justify-around flex-wrap fade-in">
+          <div>
+            <div class="">
+              <h1 class="text-6xl font-bold my-name">Hi, I'm Sabin.</h1>
+            </div>
+            <div class="block">
+              <p class="font-medium text-lg w-96">
+                Web Developer specializing in Laravel, PHP, and front-end
+                technologies.
+              </p>
+            </div>
+            <div class="mt-4">
+              <a
+                href="#projects"
+                class="p-3 rounded-full bg-white text-gray-500 font-semibold border-2 hover:shadow-lg duration-300 hover:bg-purple-500 hover:border-white hover:text-white"
+                >Explore My Work
+                <i class="fa-solid fa-arrow-right rounded-full"></i>
+              </a>
+            </div>
+          </div>
+          <!-- <div> -->
+          <!-- <img src="web-development.png" alt="Image" class="h-96 w-96" /> -->
+          <img src="coding.svg" alt="Image" class="h-1/3 w-1/3 md:w-1/3" />
+          <!-- </div> -->
+        </div>
+      </div>
+
+      <!-- second div -->
+      <div class="p-10 pt-20" id="about" class="section">
+        <div class="flex items-center justify-around fade-in">
+          <div class="w-1/2">
+            <div>
+              <h1 class="text-4xl font-bold text-gray-500 mb-4">About Me</h1>
+            </div>
+            <div class="inline-block">
+              <p class="font-medium text-lg text-gray-500">
+                I'm a developer dedicated to crafting exceptional digital
+                experiences. With a strong foundation in back-end and front-end
+                development, I turn ideas into beautiful, user-friendly
+                websites.
+              </p>
+            </div>
+            <div class="mt-4">
+              <a
+                href="#contact"
+                class="group py-2 px-4 w-1/6 rounded-full bg-white text-gray-500 font-semibold border-2 border-slate-500 hover:shadow-lg duration-300 hover:bg-purple-500 hover:border-gray-500 hover:text-white flex items-center justify-around"
+              >
+                <i
+                  class="fa-solid fa-phone group-hover:text-white text-gray-500 mr-2"
+                ></i>
+                Contact
+              </a>
+            </div>
+          </div>
+          <div class="sm:block hidden">
+            <img
+              src="profile.jpg"
+              alt="Image"
+              class="h-80 w-80 rounded-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- third div -->
+      <div class="p-10 pt-20 mt-5" id="projects" class="section">
+        <div class="text-center fade-in">
+          <h1 class="text-4xl font-bold text-gray-500 mb-8">My Projects</h1>
+        </div>
+        <!-- <div class="flex items-center justify-around fade-in"> -->
+        <div class="grid md:grid-cols-3 sm:grid-cols-2 gap-10 auto-cols-fr fade-in px-10">
+          <div
+            class="border border-gray-300 rounded-lg p-5 hover:bg-purple-100 hover:scale-y-105 hover:scale-x-105 duration-300 shadow-lg"
+          >
+            <div class="flex items-center justify-between mb-1">
+              <h4 class="text-xl font-bold text-gray-500">KUMARI JOB</h4>
+              <i class="fa-solid fa-briefcase text-violet-600 text-3xl"></i>
+            </div>
+            <p class="text-gray-600 mb-4">
+              Implemented new features update, resolved bugs, search
+              autocomplete, email verification using OTP, REST API CRUD
+              operations, profile update, dashboard update, etc.
+            </p>
+            <a
+              href="https://www.kumarijob.com/"
+              target="_blank"
+              class="text-gray-500 hover:text-gray-600 duration-300 font-semibold"
+              >View Details</a
+            >
+          </div>
+          <div
+            class="border border-gray-300 rounded-lg p-5 hover:bg-purple-100 hover:scale-y-105 hover:scale-x-105 duration-300 shadow-lg"
+          >
+            <div class="flex items-center justify-between mb-1">
+              <h4 class="text-xl font-bold text-gray-500">E-COMMERCE</h4>
+              <i class="fa-solid fa-cart-shopping text-violet-600 text-3xl"></i>
+            </div>
+            <p class="text-gray-600 mb-4">
+              Developed using Laravel and implemented concepts like email
+              verification, roles and permissions, AJAX, jQuery
+            </p>
+            <a
+              href="https://github.com/MeSabin/Mini-E-commerce"
+              target="_blank"
+              class="text-gray-500 hover:text-gray-600 duration-300 font-semibold"
+              >View Details</a
+            >
+          </div>
+          <div
+            class="border border-gray-300 rounded-lg p-5 hover:bg-purple-100 hover:scale-y-105 hover:scale-x-105 duration-300 shadow-lg"
+          >
+            <div class="flex items-center justify-between mb-1">
+              <h4 class="text-xl font-bold text-gray-500">
+                CHILD VACCINATION SYSTEM
+              </h4>
+              <i class="fa-solid fa-syringe text-violet-600 text-3xl"></i>
+            </div>
+            <p class="text-gray-600 mb-4">
+              PHP based web application to manage child vaccination records,
+              automatic SMS reminders, vaccination history, vaccine scheduling,
+              and vaccination card.
+            </p>
+            <a
+              href="https://github.com/MeSabin/Child-Vaccination-System"
+              class="text-gray-500 hover:text-gray-600 duration-300 font-semibold"
+              target="_blank"
+              >View Details</a
+            >
+          </div>
+          <div
+            class="border border-gray-300 rounded-lg p-5 hover:bg-purple-100 hover:scale-y-105 hover:scale-x-105 duration-300 shadow-lg"
+          >
+            <div class="flex items-center justify-between mb-1">
+              <h4 class="text-xl font-bold text-gray-500">
+                SCHOOL MANAGEMENT SYSTEM
+              </h4>
+              <i
+                class="fa-solid fa-graduation-cap text-violet-600 text-3xl"
+              ></i>
+            </div>
+            <p class="text-gray-600 mb-4">
+              Laravel based web platform for school operations including Teacher
+              and Student management, module creation, assignment tracking.
+            </p>
+            <a
+              href="https://github.com/MeSabin/School-Management-System"
+              target="_blank"
+              class="text-gray-500 hover:text-gray-600 duration-300 font-semibold"
+              >View Details</a
+            >
+          </div>
+        </div>
+        <!-- </div> -->
+      </div>
+
+      <!-- forth div -->
+      <div class="p-10 pt-20 mt-5" id="skills" class="section">
+        <div class="text-center fade-in">
+          <h1 class="text-4xl font-bold text-gray-500 mb-8">My Skills</h1>
+        </div>
+        <!-- <div class="flex items-center justify-center fade-in"> -->
+        <div class="gridLayout fade-in px-10">
+          <div
+            class="border border-gray-300 rounded-lg p-5 hover:bg-gray-100 hover:scale-y-105 hover:scale-x-105 duration-300 shadow-lg flex flex-col justify-center items-center"
+          >
+            <div class="flex items-center gap-10">
+              <h4 class="text-xl font-bold text-gray-500">HTML</h4>
+              <i class="fa-brands fa-html5 text-violet-600 text-3xl"></i>
+            </div>
+            <div class="relative size-40 text-center">
+              <svg
+                class="size-full -rotate-90"
+                viewBox="0 0 36 36"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <!-- Background Circle -->
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="10"
+                  fill="none"
+                  class="stroke-current text-gray-200 dark:text-orange-100"
+                  stroke-width="1"
+                ></circle>
+                <!-- Progress Circle -->
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="12"
+                  fill="none"
+                  class="stroke-current text-blue-600 dark:text-orange-300"
+                  stroke-width="2"
+                  stroke-dasharray="100"
+                ></circle>
+              </svg>
+
+              <!-- Percentage Text -->
+              <div
+                class="absolute top-1/2 start-1/2 transform -translate-y-1/2 -translate-x-1/2"
+              >
+                <i class="fa-solid fa-thumbs-up text-orange-400 text-3xl"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="border border-gray-300 rounded-lg p-5 hover:bg-gray-100 hover:scale-y-105 hover:scale-x-105 duration-300 shadow-lg flex flex-col justify-center items-center"
+          >
+            <div class="flex items-center gap-10">
+              <h4 class="text-xl font-bold text-gray-500">CSS</h4>
+              <i class="fa-brands fa-css3-alt text-violet-600 text-3xl"></i>
+            </div>
+            <div class="relative size-40">
+              <svg
+                class="size-full -rotate-90"
+                viewBox="0 0 36 36"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <!-- Background Circle -->
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="10"
+                  fill="none"
+                  class="stroke-current text-gray-200 dark:text-orange-100"
+                  stroke-width="1"
+                ></circle>
+                <!-- Progress Circle -->
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="12"
+                  fill="none"
+                  class="stroke-current text-blue-600 dark:text-orange-300"
+                  stroke-width="2"
+                  stroke-dasharray="100"
+                ></circle>
+              </svg>
+
+              <!-- Percentage Text -->
+              <div
+                class="absolute top-1/2 start-1/2 transform -translate-y-1/2 -translate-x-1/2"
+              >
+                <i class="fa-solid fa-thumbs-up text-orange-400 text-3xl"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="border border-gray-300 rounded-lg p-5 hover:bg-gray-100 hover:scale-y-105 hover:scale-x-105 duration-300 shadow-lg flex flex-col justify-center items-center"
+          >
+            <div class="flex items-center gap-10">
+              <h4 class="text-xl font-bold text-gray-500">JavaScript</h4>
+              <i class="fa-brands fa-js text-violet-600 text-3xl"></i>
+            </div>
+            <div class="relative size-40">
+              <svg
+                class="size-full -rotate-90"
+                viewBox="0 0 36 36"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <!-- Background Circle -->
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="10"
+                  fill="none"
+                  class="stroke-current text-gray-200 dark:text-orange-100"
+                  stroke-width="1"
+                ></circle>
+                <!-- Progress Circle -->
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="12"
+                  fill="none"
+                  class="stroke-current text-blue-600 dark:text-orange-300"
+                  stroke-width="2"
+                  stroke-dasharray="100"
+                ></circle>
+              </svg>
+
+              <!-- Percentage Text -->
+              <div
+                class="absolute top-1/2 start-1/2 transform -translate-y-1/2 -translate-x-1/2"
+              >
+                <i class="fa-solid fa-thumbs-up text-orange-400 text-3xl"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="border border-gray-300 rounded-lg p-5 hover:bg-gray-100 hover:scale-y-105 hover:scale-x-105 duration-300 shadow-lg flex flex-col justify-center items-center"
+          >
+            <div class="flex items-center gap-10">
+              <h4 class="text-xl font-bold text-gray-500">PHP</h4>
+              <i class="fa-brands fa-php text-violet-600 text-3xl"></i>
+            </div>
+            <div class="relative size-40">
+              <svg
+                class="size-full -rotate-90"
+                viewBox="0 0 36 36"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <!-- Background Circle -->
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="10"
+                  fill="none"
+                  class="stroke-current text-gray-200 dark:text-orange-100"
+                  stroke-width="1"
+                ></circle>
+                <!-- Progress Circle -->
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="12"
+                  fill="none"
+                  class="stroke-current text-blue-600 dark:text-orange-300"
+                  stroke-width="2"
+                  stroke-dasharray="100"
+                ></circle>
+              </svg>
+
+              <!-- Percentage Text -->
+              <div
+                class="absolute top-1/2 start-1/2 transform -translate-y-1/2 -translate-x-1/2"
+              >
+                <i class="fa-solid fa-thumbs-up text-orange-400 text-3xl"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="border border-gray-300 rounded-lg p-5 hover:bg-gray-100 hover:scale-y-105 hover:scale-x-105 duration-300 shadow-lg flex flex-col justify-center items-center"
+          >
+            <div class="flex items-center gap-10">
+              <h4 class="text-xl font-bold text-gray-500">Laravel</h4>
+              <i class="fa-brands fa-laravel text-violet-600 text-3xl"></i>
+            </div>
+            <div class="relative size-40">
+              <svg
+                class="size-full -rotate-90"
+                viewBox="0 0 36 36"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <!-- Background Circle -->
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="10"
+                  fill="none"
+                  class="stroke-current text-gray-200 dark:text-orange-100"
+                  stroke-width="1"
+                ></circle>
+                <!-- Progress Circle -->
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="12"
+                  fill="none"
+                  class="stroke-current text-blue-600 dark:text-orange-300"
+                  stroke-width="2"
+                  stroke-dasharray="100"
+                ></circle>
+              </svg>
+
+              <!-- Percentage Text -->
+              <div
+                class="absolute top-1/2 start-1/2 transform -translate-y-1/2 -translate-x-1/2"
+              >
+                <i class="fa-solid fa-thumbs-up text-orange-400 text-3xl"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- </div> -->
+      </div>
+
+      <!-- fifth div -->
+      <div
+        class="container mx-auto text-center p-10 pt-20 mt-5 fade-in"
+        id="contact"
+        class="section"
+      >
+        <h3 class="text-3xl font-bold mb-8 fade-in text-gray-500">
+          Get in Touch
+        </h3>
+        <form
+          class="max-w-lg mx-auto fade-in"
+          action="https://formspree.io/f/mgvvjnvq"
+          method="POST"
+        >
+          <input
+            type="text"
+            placeholder="Your Name"
+            name="name"
+            class="w-full border border-gray-300 focus:outline-none focus:border-purple-400 focus:border-2 rounded-lg px-4 py-2 mb-4"
+            required
+          />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            class="w-full border border-gray-300 focus:outline-none focus:border-purple-400 focus:border-2 rounded-lg px-4 py-2 mb-4"
+            required
+          />
+          <textarea
+            placeholder="Your Message"
+            rows="5"
+            name="message"
+            class="w-full border border-gray-300 focus:outline-none focus:border-purple-400 focus:border-2 rounded-lg px-4 py-2 mb-4"
+            required
+          ></textarea>
+          <button
+            type="submit"
+            class="bg-white text-gray-500 font-bold border-2 border-gray-500 px-8 py-3 rounded-full hover:bg-purple-500 hover:text-white duration-300"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </main>
+
+    <!-- footer section -->
+    <footer class="border bg-gray-800 w-full fade-in">
+      <h1 class="text-3xl font-bold mb-8 fade-in text-white text-center mt-2">
+        Contact Me
+      </h1>
+      <div class="flex justify-around items-center">
+        <div class="flex items-center gap-4">
+          <i class="fa-regular fa-envelope text-purple-700 text-5xl"></i>
+          <h2 class="text-white text-lg">kaphlesabin789@gmail.com</h2>
+        </div>
+        <div class="flex justify-center items-center gap-4">
+          <i class="fa-solid fa-phone text-purple-700 text-5xl"></i>
+          <h2 class="text-white text-lg">+977 9867076920</h2>
+        </div>
+        <div class="flex justify-center items-center gap-6">
+          <a href="https://www.facebook.com/sabin.kafle.56232" target="_blank"
+            ><i class="fa-brands fa-facebook text-white text-4xl"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/sabin-kaphle-893b53237/"
+            target="_blank"
+            ><i class="fa-brands fa-linkedin text-white text-4xl"></i
+          ></a>
+        </div>
+      </div>
+      <div class="mt-6 text-white text-lg text-center pb-6">
+        <span>Copyright &copy</span
+        ><span class="current-year" id="current-year"></span>
+        <span>All rights reserved | Sabin Kaphle</span>
+      </div>
+    </footer>
+  </body>
+
+  <script>
+    // get current year
+    const currentDate = new Date();
+    let year = document.getElementById("current-year");
+    year.innerText = currentDate.getFullYear();
+
+    // handle active link
+    let activeLink = document.querySelectorAll(".navbar-link");
+    let home = document.querySelector(".home");
+    activeLink.forEach((elem, index) => {
+      home.classList.add("active");
+      elem.addEventListener("click", function (e) {
+        activeLink.forEach((elem) => {
+          elem.classList.remove("active");
+        });
+        elem.classList.add("active");
+      });
+
+      let divSections = document.querySelectorAll(".section");
+      divSections.forEach((section) => {
+        window.addEventListener("scroll", function () {
+          let rect = section.getBoundingClientRect();
+          // console.log(rect);
+          let elemTop = rect.top;
+          let elemBottom = rect.bottom;
+          console.log(section);
+          let isVisible = elemTop > 20 && elemBottom <= window.innerHeight;
+          // console.log(isVisible);
+          if (isVisible) {
+            // console.log(elem);
+            activeLink.forEach((elem) => {
+              elem.classList.remove("active");
+            });
+
+            elem.classList.add("active");
+          }
+        });
+      });
+    });
+  </script>
+</html>
