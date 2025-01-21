@@ -47,9 +47,37 @@
       .navbar-link:hover {
         color: blue;
       }
+
+      #my-intro {
+        white-space: nowrap;
+        overflow: hidden;
+        animation: typewriter 2s steps(13) infinite alternate,
+          blink 100ms steps(13) infinite normal;
+        border-right: 5px solid rgb(84, 84, 84);
+      }
+
+      @keyframes typewriter {
+        from {
+          width: 0%;
+        }
+
+        to {
+          width: 110%;
+        }
+      }
+
+      @keyframes remove {
+        from {
+          border-color: rgb(84, 84, 84);
+        }
+
+        to {
+          border-color: transparent;
+        }
+      }
     </style>
   </head>
-  <body>
+  <body class="body">
     <header
       id="header"
       class="flex justify-between items-center sm:px-10 md:px-20 px-10 shadow-xl h-20 fixed top-0 right-0 left-0 z-50 bg-gradient-to-r from-purple-500 to-pink-300"
@@ -93,7 +121,7 @@
           </li>
         </ul>
       </div>
-    
+
       <div
         id="mobileMenu"
         class="hidden absolute top-20 left-0 w-full shadow-xl z-40 sm:hidden bg-gradient-to-r from-purple-500 to-pink-300 transition ease-in-out"
@@ -143,7 +171,7 @@
       >
         <div class="flex items-center justify-around flex-wrap gap-10 fade-in">
           <div>
-            <div>
+            <div class="inline-block">
               <h1
                 id="my-intro"
                 class="text-4xl font-bold my-name sm:text-5xl md:text-5xl lg:text-6xl"
@@ -239,7 +267,7 @@
             </div>
             <p class="text-gray-600 mb-4 text-justify">
               Implemented new features update, resolved bugs, search
-              autocomplete, email verification using OTP, REST API CRUD
+              autocomplete, email verification using OTP, REST API, CRUD
               operations, profile update, dashboard update, etc.
             </p>
             <a
@@ -673,6 +701,16 @@
 
     hamburger.addEventListener("click", () => {
       menu.classList.toggle("hidden");
+    });
+
+    let body = document.querySelector(".body");
+
+    hamburger.addEventListener("click", (e) => {
+      if (menu.style.display == "none") {
+        console.log("menu items");
+      } else {
+        console.log("nothing");
+      }
     });
   </script>
 </html>
