@@ -627,11 +627,15 @@
       <!-- <div class="flex justify-around items-center flex-wrap px-4 gap-4"> -->
       <div class="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
         <div class="flex items-center justify-center gap-5">
-          <i class="fa-regular fa-envelope text-purple-700 text-5xl"></i>
+          <i
+            class="fa-regular fa-envelope text-purple-700 text-3xl sm:text-3xl md:text-4xl lg:text-5xl"
+          ></i>
           <h2 class="text-white text-lg">kaphlesabin789@gmail.com</h2>
         </div>
         <div class="flex justify-center items-center gap-4 pl-3">
-          <i class="fa-solid fa-phone text-purple-700 text-5xl"></i>
+          <i
+            class="fa-solid fa-phone text-purple-700 text-3xl sm:text-3xl md:text-4xl lg:text-5xl"
+          ></i>
           <h2 class="text-white text-lg">+977 9867076920</h2>
         </div>
         <div
@@ -671,27 +675,6 @@
           elem.classList.remove("active");
         });
         elem.classList.add("active");
-      });
-
-      let divSections = document.querySelectorAll(".section");
-      divSections.forEach((section) => {
-        window.addEventListener("scroll", function () {
-          let rect = section.getBoundingClientRect();
-          // console.log(rect);
-          let elemTop = rect.top;
-          let elemBottom = rect.bottom;
-          console.log(section);
-          let isVisible = elemTop > 20 && elemBottom <= window.innerHeight;
-          // console.log(isVisible);
-          if (isVisible) {
-            // console.log(elem);
-            activeLink.forEach((elem) => {
-              elem.classList.remove("active");
-            });
-
-            elem.classList.add("active");
-          }
-        });
       });
     });
 
