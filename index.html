@@ -41,11 +41,34 @@
         animation: fadeInUp 1s ease-out forwards;
       }
 
-      .navbar-link.active {
-        color: blue;
+      /* handle active navbar links */
+      .navbar-link {
+        position: relative;
+        /* padding-bottom: 2px; */
+        color: #4b5563;
+        transition: color 0.3s ease-in-out;
       }
+
+      .navbar-link.active,
       .navbar-link:hover {
-        color: blue;
+        color: #2563eb;
+      }
+
+      .navbar-link::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background-color: #2563eb;
+        transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+      }
+
+      .navbar-link:hover::after,
+      .navbar-link.active::after {
+        width: 100%;
+        left: 0;
       }
 
       #my-intro {
@@ -96,7 +119,7 @@
           <li
             class="navbar-link home inline-block text-gray-700 font-semibold cursor-pointer duration-200 pb-1 px-3"
           >
-            <a href="">Home</a>
+            <a href="#home">Home</a>
           </li>
           <li
             class="navbar-link about inline-block text-gray-700 font-semibold cursor-pointer duration-200 pb-1 px-3"
@@ -168,6 +191,7 @@
       <!-- first div -->
       <div
         class="section pt-36 p-10 bg-gradient-to-r from-purple-500 to-pink-300 text-white"
+        id="home"
       >
         <div class="flex items-center justify-around flex-wrap gap-10 fade-in">
           <div>
