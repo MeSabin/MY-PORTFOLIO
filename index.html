@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
+    <title>Sabin Kaphle - Web Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
@@ -21,7 +21,8 @@
       }
 
       body {
-        font-family: poppins;
+        font-family: "Poppins", sans-serif;
+        color: #374151; /* Default text color: gray-700 */
       }
       html {
         scroll-behavior: smooth;
@@ -29,7 +30,9 @@
       @keyframes fadeInUp {
         0% {
           opacity: 0;
-          transform: translateY(20px);
+          transform: translateY(
+            30px
+          ); /* Slightly increased for more noticeable effect */
         }
         100% {
           opacity: 1;
@@ -38,30 +41,25 @@
       }
 
       .fade-in {
-        animation: fadeInUp 1s ease-out forwards;
+        animation: fadeInUp 0.8s ease-out forwards; /* Slightly faster */
       }
 
       /* handle active navbar links */
       .navbar-link {
         position: relative;
-        /* padding-bottom: 2px; */
-        color: #4b5563;
+        color: #4b5563; /* gray-600 */
         transition: color 0.3s ease-in-out;
-      }
-
-      .navbar-link.active,
-      .navbar-link:hover {
-        color: #2563eb;
+        font-weight: 500; /* medium */
       }
 
       .navbar-link::after {
         content: "";
         position: absolute;
         left: 50%;
-        bottom: 0;
+        bottom: -4px; /* Adjusted for better spacing */
         width: 0;
-        height: 2px;
-        background-color: #2563eb;
+        height: 2.5px;
+        background-color: #af830a; /* indigo-600 */
         transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
       }
 
@@ -74,71 +72,156 @@
       #my-intro {
         white-space: nowrap;
         overflow: hidden;
-        animation: typewriter 2s steps(13) infinite alternate,
-          blink 100ms steps(13) infinite normal;
-        border-right: 5px solid rgb(84, 84, 84);
+        border-right: 3px solid #374151; /* gray-700 */
+        animation: typing 2.5s steps(14, end) 0.5s 1 normal both,
+          blink-caret 0.75s step-end infinite 3s; /* Start blinking after typing + delay */
+        font-family: "Space Mono", monospace;
+        display: inline-flex; /* Changed to inline-flex for better alignment with icon */
+        align-items: center;
+        letter-spacing: 0.05em;
+        color: #e2e8f0; /* Added text color */
+        position: relative;
       }
 
-      @keyframes typewriter {
-        from {
-          width: 0%;
-        }
+      .wave-hand {
+        display: inline-block;
+        margin-right: 0.2rem;
+        animation: wave 2s infinite;
+        transform-origin: 70% 70%;
+        font-size: 1.25rem;
+      }
 
+      @keyframes typing {
+        from {
+          width: 0;
+        }
         to {
-          width: 110%;
+          width: 14ch;
         }
       }
 
-      @keyframes remove {
-        from {
-          border-color: rgb(84, 84, 84);
-        }
-
+      @keyframes blink-caret {
+        from,
         to {
           border-color: transparent;
         }
+        50% {
+          border-color: #6366f1; /* Changed to indigo-500 for better visibility */
+        }
+      }
+
+      @keyframes wave {
+        0% {
+          transform: rotate(0deg);
+        }
+        10% {
+          transform: rotate(14deg);
+        }
+        20% {
+          transform: rotate(-8deg);
+        }
+        30% {
+          transform: rotate(14deg);
+        }
+        40% {
+          transform: rotate(-4deg);
+        }
+        50% {
+          transform: rotate(10deg);
+        }
+        60% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+
+      /* Animation for projects to appear from bottom to top */
+      .project-card {
+        opacity: 0;
+        transform: translateY(100px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+
+      .project-card.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Staggered animation delay for each project */
+      .project-card:nth-child(1) {
+        transition-delay: 0.3s;
+      }
+      .project-card:nth-child(2) {
+        transition-delay: 0.4s;
+      }
+      .project-card:nth-child(3) {
+        transition-delay: 0.7s;
+      }
+      .project-card:nth-child(4) {
+        transition-delay: 1s;
       }
     </style>
   </head>
-  <body class="body">
+  <body class="body bg-slate-900">
     <header
       id="header"
-      class="flex justify-between items-center sm:px-10 md:px-20 px-10 shadow-xl h-20 fixed top-0 right-0 left-0 z-50 bg-gradient-to-r from-purple-500 to-pink-300"
+      class="flex justify-between items-center px-32 shadow-indigo-500 border-b border-slate-600 h-20 fixed top-0 right-0 left-0 z-50 bg-slate-900"
     >
       <div>
-        <a href="" class="font-bold text-2xl cursor-pointer text-gray-800">
-          <i class="fa-solid fa-code"></i>
-          Sabin
+        <a
+          href="#home"
+          class="group flex items-center space-x-2 font-bold text-3xl cursor-pointer transition-all duration-300"
+        >
+          <span
+            class="bg-gradient-to-r from-blue-600 to-blue-400 p-2 rounded-lg text-white transform transition-all duration-300 group-hover:rotate-6 group-hover:scale-110"
+          >
+            <i class="fa-solid fa-code"></i>
+          </span>
+          <span
+            class="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent group-hover:tracking-wider transition-all duration-300"
+          >
+            Sabin
+          </span>
+          <span class="relative hidden md:inline-block">
+            <span
+              class="absolute -top-3 -right-3 bg-indigo-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded-full transform -rotate-12 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              Developer
+            </span>
+          </span>
         </a>
       </div>
-      <div class="sm:hidden block hamburger">
-        <i class="fa-solid fa-bars"></i>
+      <div class="sm:hidden block hamburger cursor-pointer">
+        <i
+          class="fa-solid fa-bars text-2xl text-blue-600 transition-transform duration-300"
+        ></i>
       </div>
       <div class="hidden sm:inline-block">
-        <ul>
+        <ul class="space-x-2">
           <li
-            class="navbar-link home inline-block text-gray-700 font-semibold cursor-pointer duration-200 pb-1 px-3"
+            class="navbar-link home inline-block text-slate-300 cursor-pointer duration-200 pb-1 px-3"
           >
             <a href="#home">Home</a>
           </li>
           <li
-            class="navbar-link about inline-block text-gray-700 font-semibold cursor-pointer duration-200 pb-1 px-3"
+            class="navbar-link about inline-block text-slate-300 cursor-pointer duration-200 pb-1 px-3"
           >
             <a href="#about" id="">About</a>
           </li>
           <li
-            class="navbar-link projects inline-block text-gray-700 font-semibold cursor-pointer duration-200 pb-1 px-3"
+            class="navbar-link projects inline-block text-slate-300 cursor-pointer duration-200 pb-1 px-3"
           >
             <a href="#projects">Projects</a>
           </li>
           <li
-            class="navbar-link skills inline-block text-gray-700 font-semibold cursor-pointer duration-200 pb-1 px-3"
+            class="navbar-link skills inline-block text-slate-300 cursor-pointer duration-200 pb-1 px-3"
           >
             <a href="#skills">Skills</a>
           </li>
-
           <li
-            class="navbar-link contact inline-block text-gray-700 font-semibold cursor-pointer duration-200 pb-1 px-3"
+            class="navbar-link contact inline-block text-slate-300 cursor-pointer duration-200 pb-1 px-3"
           >
             <a href="#contact">Contact</a>
           </li>
@@ -147,38 +230,40 @@
 
       <div
         id="mobileMenu"
-        class="hidden absolute top-20 left-0 w-full shadow-xl z-40 sm:hidden bg-gradient-to-r from-purple-500 to-pink-300 transition ease-in-out"
+        class="hidden absolute top-20 left-0 w-full shadow-xl z-40 sm:hidden"
       >
         <ul class="flex flex-col text-center">
-          <li class="py-2">
-            <a class="navbar-link home text-gray-700 font-semibold px-3" href=""
+          <li class="py-3 border-b border-slate-100">
+            <a
+              class="navbar-link home text-slate-700 font-medium px-3"
+              href="#home"
               >Home</a
             >
           </li>
-          <li class="py-2">
+          <li class="py-3 border-b border-slate-100">
             <a
-              class="navbar-link text-gray-700 font-semibold px-3"
+              class="navbar-link about text-slate-700 font-medium px-3"
               href="#about"
               >About</a
             >
           </li>
-          <li class="py-2">
+          <li class="py-3 border-b border-slate-100">
             <a
-              class="navbar-link text-gray-700 font-semibold px-3"
+              class="navbar-link projects text-slate-700 font-medium px-3"
               href="#projects"
               >Projects</a
             >
           </li>
-          <li class="py-2">
+          <li class="py-3 border-b border-slate-100">
             <a
-              class="navbar-link text-gray-700 font-semibold px-3"
+              class="navbar-link skills text-slate-700 font-medium px-3"
               href="#skills"
               >Skills</a
             >
           </li>
-          <li class="py-2">
+          <li class="py-3">
             <a
-              class="navbar-link text-gray-700 font-semibold px-3"
+              class="navbar-link contact text-slate-700 font-medium px-3"
               href="#contact"
               >Contact</a
             >
@@ -187,502 +272,903 @@
       </div>
     </header>
 
-    <main class="mb-10" id="home">
-      <!-- first div -->
-      <div
-        class="section pt-36 p-10 bg-gradient-to-r from-purple-500 to-pink-300 text-white"
+    <main class="" id="home-section">
+      <section
+        class="section pt-36 md:pt-48 pb-16 md:pb-24 text-slate-800 min-h-[80vh] flex items-center"
         id="home"
       >
-        <div class="flex items-center justify-around flex-wrap gap-10 fade-in">
-          <div>
-            <div class="inline-block">
-              <h1
-                id="my-intro"
-                class="text-4xl font-bold my-name sm:text-5xl md:text-5xl lg:text-6xl"
-              >
-                Hi, I'm Sabin.
+        <div class="container px-32">
+          <div
+            class="flex items-center justify-between flex-wrap-reverse gap-10 fade-in"
+          >
+            <div class="text-center md:text-left text-white">
+              <div class="greeting mb-4">
+                <span class="text-blue-600 font-bold text-3xl">Hi</span>
+                <div class="wave-hand text-4xl">👋</div>
+                <span class="text-blue-600 font-bold text-3xl">,I'm</span>
+              </div>
+
+              <h1 class="name text-5xl font-bold mb-4" id="my-intro">
+                Sabin Kaphle.
               </h1>
+              <div class="title text-yellow-600 font-bold text-3xl">
+                FullStack Developer
+              </div>
+              <div class="mt-4 sm:block md:block lg:block">
+                <p
+                  class="font-medium text-lg sm:text-xl md:text-xl text-slate-300 max-w-xl"
+                >
+                  Full-stack Web Developer skilled in Laravel, PHP, and turning
+                  ideas into seamless digital experiences.
+                </p>
+              </div>
+              <div class="mt-10">
+                <a
+                  href="#projects"
+                  class="p-3 rounded-lg border-2 border-blue-600 text-blue-600 font-semibold transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 inline-flex items-center"
+                  >Explore My Work
+                  <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+              </div>
             </div>
-            <div class="sm:block md:block lg:block">
-              <p class="font-medium text-lg sm:w-96 md:w-96">
-                Web Developer specializing in Laravel, PHP, and front-end
-                technologies.
+
+            <div class="relative flex justify-center">
+              <!-- Container with gradient border -->
+              <div class="rounded-full p-1 bg-yellow-700 shadow-xl">
+                <!-- Image container -->
+                <div class="rounded-full">
+                  <img
+                    src="profile.jpg"
+                    alt="Sabin Kaphle"
+                    class="w-56 h-56 rounded-full object-cover"
+                  />
+                </div>
+              </div>
+
+              <!-- Experience badge -->
+              <div
+                class="absolute -bottom-4 right-0 bg-gradient-to-r from-blue-600 to-blue-400 text-white text-center py-1 px-6 rounded-lg shadow-lg transform rotate-3 transition-transform hover:rotate-6 hover:scale-105"
+              >
+                <span class="block text-lg font-bold">1</span>
+                <span class="text-sm font-medium tracking-wide"
+                  >Year Experience</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section class="py-24 md:py-32 id="about">
+        <div class="container px-32">
+          <div
+            class="flex flex-col-reverse md:flex-row md:items-center md:justify-between gap-16"
+          >
+            <!-- Left Column - Text Content -->
+            <div class="md:w-1/2 relative">
+              <!-- Section Header -->
+              <div class="mb-6">
+                <span
+                  class="text-blue-600 font-medium text-sm uppercase tracking-wider"
+                  >Who I Am</span
+                >
+                <h1
+                  class="text-xl md:text-xl lg:text-2xl font-bold text-slate-300 mt-2"
+                >
+                  About Me
+                </h1>
+                <div class="w-24 h-1 bg-blue-600 rounded-full mt-4 mb-6"></div>
+              </div>
+
+              <!-- Bio Text -->
+              <p class="text-lg leading-relaxed text-slate-300 mb-8">
+                I'm a passionate developer dedicated to crafting exceptional and
+                intuitive digital experiences. With a strong foundation in both
+                back-end and front-end development, I transform ideas into
+                beautiful, user-friendly web applications.
               </p>
+
+              <!-- Key Skills/Highlights -->
+              <div class="grid grid-cols-2 gap-4 mb-8">
+                <div class="flex items-center">
+                  <div
+                    class="bg-indigo-100 p-2 rounded-full text-blue-600 mr-3"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <span class="font-medium text-slate-300"
+                    >Web Development</span
+                  >
+                </div>
+                <div class="flex items-center">
+                  <div
+                    class="bg-indigo-100 p-2 rounded-full text-blue-600 mr-3"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"
+                      />
+                    </svg>
+                  </div>
+                  <span class="font-medium text-slate-300"
+                    >Responsive Design</span
+                  >
+                </div>
+                <div class="flex items-center">
+                  <div
+                    class="bg-indigo-100 p-2 rounded-full text-blue-600 mr-3"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <span class="font-medium text-slate-300"
+                    >Backend Development</span
+                  >
+                </div>
+                <div class="flex items-center">
+                  <div
+                    class="bg-indigo-100 p-2 rounded-full text-blue-600 mr-3"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M7 2a1 1 0 00-.707 1.707L7 4.414v3.758a1 1 0 01-.293.707l-4 4C.817 14.769 2.156 18 4.828 18h10.343c2.673 0 4.012-3.231 2.122-5.121l-4-4A1 1 0 0113 8.172V4.414l.707-.707A1 1 0 0013 2H7zm2 6.172V4h2v4.172a3 3 0 00.879 2.12l1.027 1.028a4 4 0 00-2.171.102l-.47.156a4 4 0 01-2.53 0l-.563-.187a1.993 1.993 0 00-.114-.035l1.063-1.063A3 3 0 009 8.172z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <span class="font-medium text-slate-300"
+                    >Problem Solving</span
+                  >
+                </div>
+              </div>
+
+              <!-- CTA Buttons -->
+              <div class="flex flex-wrap gap-4">
+                <a
+                  href="#contact"
+                  class="group py-3 px-6 rounded-lg bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition-all duration-300 shadow-md hover:shadow-lg flex items-center transform hover:-translate-y-1"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 mr-2"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
+                    />
+                    <path
+                      d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
+                    />
+                  </svg>
+                  Get in Touch
+                </a>
+                <a
+                  href="#"
+                  class="py-3 px-6 rounded-lg text-blue-600 font-semibold border-2 border-blue-600 transition-all duration-300 flex items-center transform hover:-translate-y-1"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 mr-2"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z"
+                      clip-rule="evenodd"
+                    />
+                    <path
+                      d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"
+                    />
+                  </svg>
+                  Download CV
+                </a>
+              </div>
             </div>
-            <div class="mt-7">
+
+              <!-- Right Column - Image -->
+              <div
+                class="md:w-1/2 flex justify-center md:justify-end mb-10 md:mb-0"
+              >
+                <img
+                  src="coding.svg"
+                  alt="Coding Illustration"
+                  class="h-auto md:w-full sm:w w-3-full max-w-md"
+                />
+              </div>
+          </div>
+        </div>
+      </section>
+      <!-- Projects Section -->
+      <section class="py-20 md:py-24" id="projects">
+        <div class="container mx-auto max-w-6xl">
+          <div class="text-center fade-in mb-16">
+            <span
+              class="text-blue-600 font-medium text-sm uppercase tracking-widest inline-block mb-2"
+              >Portfolio</span
+            >
+            <h2 class="lg:text-2xl text-xl font-bold text-white mt-2 mb-6">
+              My Projects
+            </h2>
+            <div class="w-24 h-1 bg-blue-500 mx-auto rounded-full mb-8"></div>
+            <p
+              class="text-slate-300 max-w-2xl mx-auto text-base md:text-lg mb-8"
+            >
+              Some of my recent work that showcases my skills and expertise
+            </p>
+          </div>
+
+          <div
+            class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10"
+          >
+            <!-- Project 1 -->
+            <div
+              class="project-card bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-500 flex flex-col group transform hover:-translate-y-2 hover:bg-slate-700/60"
+            >
+              <div class="relative mb-4">
+                <div
+                  class="absolute inset-0 bg-gradient-to-r from-indigo-600/20 to-purple-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                ></div>
+                <div class="flex items-center justify-between">
+                  <h3
+                    class="text-xl lg:text-2xl font-semibold text-blue-600 group-hover:text-blue-300 transition-colors"
+                  >
+                    KUMARI JOB
+                  </h3>
+                  <div
+                    class="w-12 h-12 flex items-center justify-center rounded-full bg-slate-700 group-hover:bg-slate-600 transition-colors"
+                  >
+                    <i class="fa-solid fa-briefcase text-blue-400 text-2xl"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="h-1 w-0 group-hover:w-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-500 mb-4 rounded-full"
+              ></div>
+
+              <p class="text-slate-300 mb-6 flex-grow">
+                Implemented new features, resolved bugs, search autocomplete,
+                email verification using OTP, REST API, CRUD operations, profile
+                update, dashboard update, etc.
+              </p>
+
               <a
-                href="#projects"
-                class="p-3 rounded-full bg-white text-gray-500 font-semibold border-2 hover:shadow-lg duration-300 hover:bg-purple-500 hover:border-white hover:text-white"
-                >Explore My Work
-                <i class="fa-solid fa-arrow-right rounded-full"></i>
+                href="https://www.kumarijob.com/"
+                target="_blank"
+                class="text-blue-400 hover:text-blue-300 font-semibold self-start group-hover:translate-x-1 transition-transform duration-300 flex items-center"
+              >
+                View Details
+                <svg
+                  class="w-4 h-4 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+
+            <!-- Project 2 -->
+            <div
+              class="project-card bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-500 flex flex-col group transform hover:-translate-y-2 hover:bg-slate-700/60"
+            >
+              <div class="relative mb-4">
+                <div
+                  class="absolute inset-0 bg-gradient-to-r from-indigo-600/20 to-purple-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                ></div>
+                <div class="flex items-center justify-between">
+                  <h3
+                    class="text-xl lg:text-2xl font-semibold text-blue-600 group-hover:text-blue-300 transition-colors"
+                  >
+                    E-COMMERCE
+                  </h3>
+                  <div
+                    class="w-12 h-12 flex items-center justify-center rounded-full bg-slate-700 group-hover:bg-slate-600 transition-colors"
+                  >
+                    <i
+                      class="fa-solid fa-cart-shopping text-blue-400 text-2xl"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="h-1 w-0 group-hover:w-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-500 mb-4 rounded-full"
+              ></div>
+
+              <p class="text-slate-300 mb-6 flex-grow">
+                Developed using Laravel, featuring email verification, roles &
+                permissions, AJAX, jQuery for a seamless user experience.
+              </p>
+
+              <a
+                href="https://github.com/MeSabin/Mini-E-commerce"
+                target="_blank"
+                class="text-blue-400 hover:text-blue-300 font-semibold self-start group-hover:translate-x-1 transition-transform duration-300 flex items-center"
+              >
+                View Details
+                <svg
+                  class="w-4 h-4 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+
+            <!-- Project 3 -->
+            <div
+              class="project-card bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-500 flex flex-col group transform hover:-translate-y-2 hover:bg-slate-700/60"
+            >
+              <div class="relative mb-4">
+                <div
+                  class="absolute inset-0 bg-gradient-to-r from-indigo-600/20 to-purple-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                ></div>
+                <div class="flex items-center justify-between">
+                  <h3
+                    class="text-xl lg:text-2xl font-semibold text-blue-600 group-hover:text-blue-300 transition-colors"
+                  >
+                    CHILD VACCINATION
+                  </h3>
+                  <div
+                    class="w-12 h-12 flex items-center justify-center rounded-full bg-slate-700 group-hover:bg-slate-600 transition-colors"
+                  >
+                    <i class="fa-solid fa-syringe text-blue-400 text-2xl"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="h-1 w-0 group-hover:w-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-500 mb-4 rounded-full"
+              ></div>
+
+              <p class="text-slate-300 mb-6 flex-grow">
+                PHP web app for managing child vaccination records, SMS
+                reminders, history, scheduling, and vaccination cards.
+              </p>
+
+              <a
+                href="https://github.com/MeSabin/Child-Vaccination-System"
+                target="_blank"
+                class="text-blue-400 hover:text-blue-300 font-semibold self-start group-hover:translate-x-1 transition-transform duration-300 flex items-center"
+              >
+                View Details
+                <svg
+                  class="w-4 h-4 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+
+            <!-- Project 4 -->
+            <div
+              class="project-card bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-500 flex flex-col group transform hover:-translate-y-2 hover:bg-slate-700/60"
+            >
+              <div class="relative mb-4">
+                <div
+                  class="absolute inset-0 bg-gradient-to-r from-indigo-600/20 to-purple-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                ></div>
+                <div class="flex items-center justify-between">
+                  <h3
+                    class="text-xl lg:text-2xl font-semibold text-blue-600 group-hover:text-blue-300 transition-colors"
+                  >
+                    SCHOOL MANAGEMENT
+                  </h3>
+                  <div
+                    class="w-12 h-12 flex items-center justify-center rounded-full bg-slate-700 group-hover:bg-slate-600 transition-colors"
+                  >
+                    <i
+                      class="fa-solid fa-graduation-cap text-blue-400 text-2xl"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="h-1 w-0 group-hover:w-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-500 mb-4 rounded-full"
+              ></div>
+
+              <p class="text-slate-300 mb-6 flex-grow">
+                Laravel platform for school operations: Teacher/Student
+                management, module creation, assignment tracking.
+              </p>
+
+              <a
+                href="https://github.com/MeSabin/School-Management-System"
+                target="_blank"
+                class="text-blue-400 hover:text-blue-300 font-semibold self-start group-hover:translate-x-1 transition-transform duration-300 flex items-center"
+              >
+                View Details
+                <svg
+                  class="w-4 h-4 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  ></path>
+                </svg>
               </a>
             </div>
           </div>
-          <img
-            src="coding.svg"
-            alt="Image"
-            class="h-1/3 md:w-1/3 sm:w-1/3 w-1/2"
-          />
         </div>
-      </div>
+      </section>
 
-      <!-- second div -->
-      <div class="p-10 pt-20" id="about" class="section">
-        <div
-          class="md:flex md:flex-row md:items-center md:justify-around flex flex-col justify-between items-center gap-10 fade-in"
-        >
-          <div class="md:w-1/2">
-            <div class="w-full">
-              <h1
-                class="md:text-4xl lg:text-4xl text-2xl font-bold text-gray-500 mb-4 w-full"
-              >
-                About Me
-              </h1>
-            </div>
-            <div class="w-full">
-              <p class="font-medium text-lg text-gray-500 w-full text-justify">
-                I'm a developer dedicated to crafting exceptional digital
-                experiences. With a strong foundation in back-end and front-end
-                development, I turn ideas into beautiful, user-friendly
-                websites.
-              </p>
-            </div>
-            <div class="mt-4 inline-block">
-              <a
-                href="#contact"
-                class="group py-3 px-4 rounded-full bg-white text-gray-500 font-semibold border-2 border-slate-500 hover:shadow-lg duration-300 hover:bg-purple-500 hover:border-gray-500 hover:text-white flex items-center justify-around"
+      <!-- Skills Section -->
+      <section
+        class="py-20 border-gray-200 md:py-24 fade-in"
+        id="skills"
+      >
+        <div class="container mx-auto max-w-6xl">
+          <div class="text-center fade-in mb-16">
+            <span
+              class="text-blue-400 font-medium text-sm uppercase tracking-widest inline-block mb-2"
+              >Expertise</span
+            >
+            <h2 class="text-xl font-bold text-white mt-2 mb-6">My Skills</h2>
+            <div class="w-24 h-1 bg-indigo-500 mx-auto rounded-full mb-8"></div>
+            <p
+              class="text-slate-300 max-w-2xl mx-auto text-base md:text-lg mb-8"
+            >
+              Technologies and tools I work with
+            </p>
+          </div>
+
+          <div
+            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8 fade-in"
+          >
+            <!-- HTML Skill -->
+            <div
+              class="project-card bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:bg-slate-700/60 flex flex-col items-center space-y-4 text-center group"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-orange-500/20 to-orange-600/20 group-hover:from-orange-500/30 group-hover:to-orange-600/30 transition-all duration-300"
               >
                 <i
-                  class="fa-solid fa-phone group-hover:text-white text-gray-500 mr-2"
+                  class="fab fa-html5 text-orange-500 text-4xl group-hover:text-orange-400 transition-colors"
                 ></i>
-                Contact
-              </a>
+              </div>
+              <h4 class="text-lg font-semibold text-white">HTML</h4>
             </div>
-          </div>
-          <div class="sm:block md:block lg:block">
-            <img
-              src="profile.jpg"
-              alt="Image"
-              class="md:w-80 md:h-80 lg:w-80 lg:h-80 h-40 w-40 rounded-full object-cover"
-            />
-          </div>
-        </div>
-      </div>
 
-      <!-- third div -->
-      <div class="p-10 pt-20 mt-5" id="projects" class="section">
-        <div class="text-center fade-in">
-          <h1
-            class="md:text-4xl lg:text-4xl text-2xl font-bold text-gray-500 mb-8"
-          >
-            My Projects
-          </h1>
-        </div>
-        <!-- <div class="flex items-center justify-around fade-in"> -->
-        <div
-          class="grid md:grid-cols-3 sm:grid-cols-2 gap-10 auto-cols-fr fade-in sm:px-5 md:gap-10"
-        >
-          <div
-            class="border border-gray-300 rounded-lg p-5 hover:bg-purple-100 hover:scale-y-105 hover:scale-x-105 duration-300 shadow-lg"
-          >
-            <div class="flex items-center justify-between mb-1">
-              <h4 class="md:text-xl lg:text-xl font-bold text-gray-500">
-                KUMARI JOB
-              </h4>
-              <i class="fa-solid fa-briefcase text-violet-600 text-3xl"></i>
-            </div>
-            <p class="text-gray-600 mb-4 text-justify">
-              Implemented new features update, resolved bugs, search
-              autocomplete, email verification using OTP, REST API, CRUD
-              operations, profile update, dashboard update, etc.
-            </p>
-            <a
-              href="https://www.kumarijob.com/"
-              target="_blank"
-              class="text-gray-500 hover:text-gray-600 duration-300 font-semibold"
-              >View Details</a
+            <!-- CSS Skill -->
+            <div
+              class="project-card bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:bg-slate-700/60 flex flex-col items-center space-y-4 text-center group"
             >
-          </div>
-          <div
-            class="border border-gray-300 rounded-lg p-5 hover:bg-purple-100 hover:scale-y-105 hover:scale-x-105 duration-300 shadow-lg"
-          >
-            <div class="flex items-center justify-between mb-1">
-              <h4 class="md:text-xl lg:text-xl font-bold text-gray-500">
-                E-COMMERCE
-              </h4>
-              <i class="fa-solid fa-cart-shopping text-violet-600 text-3xl"></i>
+              <div
+                class="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-500/20 to-blue-600/20 group-hover:from-blue-500/30 group-hover:to-blue-600/30 transition-all duration-300"
+              >
+                <i
+                  class="fab fa-css3-alt text-blue-500 text-4xl group-hover:text-blue-400 transition-colors"
+                ></i>
+              </div>
+              <h4 class="text-lg font-semibold text-white">CSS</h4>
             </div>
-            <p class="text-gray-600 mb-4 text-justify">
-              Developed using Laravel and implemented concepts like email
-              verification, roles and permissions, AJAX, jQuery
-            </p>
-            <a
-              href="https://github.com/MeSabin/Mini-E-commerce"
-              target="_blank"
-              class="text-gray-500 hover:text-gray-600 duration-300 font-semibold"
-              >View Details</a
+
+            <!-- JavaScript Skill -->
+            <div
+              class="project-card bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:bg-slate-700/60 flex flex-col items-center space-y-4 text-center group"
             >
-          </div>
-          <div
-            class="border border-gray-300 rounded-lg p-5 hover:bg-purple-100 hover:scale-y-105 hover:scale-x-105 duration-300 shadow-lg"
-          >
-            <div class="flex items-center justify-between mb-1">
-              <h4 class="md:text-xl lg:text-xl font-bold text-gray-500">
-                CHILD VACCINATION SYSTEM
-              </h4>
-              <i class="fa-solid fa-syringe text-violet-600 text-3xl"></i>
+              <div
+                class="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-yellow-500/20 to-yellow-600/20 group-hover:from-yellow-500/30 group-hover:to-yellow-600/30 transition-all duration-300"
+              >
+                <i
+                  class="fab fa-js-square text-yellow-500 text-4xl group-hover:text-yellow-400 transition-colors"
+                ></i>
+              </div>
+              <h4 class="text-lg font-semibold text-white">JavaScript</h4>
             </div>
-            <p class="text-gray-600 mb-4 text-justify">
-              PHP based web application to manage child vaccination records,
-              automatic SMS reminders, vaccination history, vaccine scheduling,
-              and vaccination card.
-            </p>
-            <a
-              href="https://github.com/MeSabin/Child-Vaccination-System"
-              class="text-gray-500 hover:text-gray-600 duration-300 font-semibold"
-              target="_blank"
-              >View Details</a
+
+            <!-- jQuery Skill -->
+            <div
+              class="project-card bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:bg-slate-700/60 flex flex-col items-center space-y-4 text-center group"
             >
-          </div>
-          <div
-            class="border border-gray-300 rounded-lg p-5 hover:bg-purple-100 hover:scale-y-105 hover:scale-x-105 duration-300 shadow-lg"
-          >
-            <div class="flex items-center justify-between mb-1">
-              <h4 class="md:text-xl lg:text-xl font-bold text-gray-500">
-                SCHOOL MANAGEMENT SYSTEM
-              </h4>
-              <i
-                class="fa-solid fa-graduation-cap text-violet-600 text-3xl"
-              ></i>
+              <div
+                class="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-400/20 to-blue-500/20 group-hover:from-blue-400/30 group-hover:to-blue-500/30 transition-all duration-300"
+              >
+                <i
+                  class="fab fa-js text-blue-400 text-4xl group-hover:text-blue-300 transition-colors"
+                ></i>
+              </div>
+              <h4 class="text-lg font-semibold text-white">jQuery</h4>
             </div>
-            <p class="text-gray-600 mb-4">
-              Laravel based web platform for school operations including Teacher
-              and Student management, module creation, assignment tracking.
-            </p>
-            <a
-              href="https://github.com/MeSabin/School-Management-System"
-              target="_blank"
-              class="text-gray-500 hover:text-gray-600 duration-300 font-semibold"
-              >View Details</a
+
+            <!-- PHP Skill -->
+            <div
+              class="project-card bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:bg-slate-700/60 flex flex-col items-center space-y-4 text-center group"
             >
-          </div>
-        </div>
-        <!-- </div> -->
-      </div>
-
-      <!-- forth div -->
-      <div class="p-10 pt-20 mt-5" id="skills" class="section">
-        <div class="text-center fade-in">
-          <h1
-            class="md:text-4xl lg:text-4xl text-2xl font-bold text-gray-500 mb-8"
-          >
-            My Skills
-          </h1>
-        </div>
-        <!-- <div class="flex items-center justify-center fade-in"> -->
-        <div
-          class="grid sm:grid-cols-2 md:grid-cols-3 gap-10 fade-in sm:px-10 md:px-10"
-        >
-          <div
-            class="border border-gray-300 rounded-lg p-5 hover:bg-gray-100 hover:scale-y-105 hover:scale-x-105 duration-300 shadow-lg flex flex-col justify-center items-center"
-          >
-            <div class="flex items-center gap-10">
-              <h4 class="text-xl font-bold text-gray-500">HTML</h4>
-              <i class="fa-brands fa-html5 text-violet-600 text-3xl"></i>
-            </div>
-            <div class="relative size-40 text-center">
-              <svg
-                class="size-full -rotate-90"
-                viewBox="0 0 36 36"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <!-- Background Circle -->
-                <circle
-                  cx="18"
-                  cy="18"
-                  r="10"
-                  fill="none"
-                  class="stroke-current text-gray-200 dark:text-orange-100"
-                  stroke-width="1"
-                ></circle>
-                <!-- Progress Circle -->
-                <circle
-                  cx="18"
-                  cy="18"
-                  r="12"
-                  fill="none"
-                  class="stroke-current text-blue-600 dark:text-orange-300"
-                  stroke-width="2"
-                  stroke-dasharray="100"
-                ></circle>
-              </svg>
-
-              <!-- Percentage Text -->
               <div
-                class="absolute top-1/2 start-1/2 transform -translate-y-1/2 -translate-x-1/2"
+                class="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-indigo-400/20 to-indigo-500/20 group-hover:from-indigo-400/30 group-hover:to-indigo-500/30 transition-all duration-300"
               >
-                <i class="fa-solid fa-thumbs-up text-orange-400 text-3xl"></i>
+                <i
+                  class="fab fa-php text-blue-400 text-4xl group-hover:text-blue-300 transition-colors"
+                ></i>
               </div>
+              <h4 class="text-lg font-semibold text-white">PHP</h4>
             </div>
-          </div>
-          <div
-            class="border border-gray-300 rounded-lg p-5 hover:bg-gray-100 hover:scale-y-105 hover:scale-x-105 duration-300 shadow-lg flex flex-col justify-center items-center"
-          >
-            <div class="flex items-center gap-10">
-              <h4 class="text-xl font-bold text-gray-500">CSS</h4>
-              <i class="fa-brands fa-css3-alt text-violet-600 text-3xl"></i>
-            </div>
-            <div class="relative size-40">
-              <svg
-                class="size-full -rotate-90"
-                viewBox="0 0 36 36"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <!-- Background Circle -->
-                <circle
-                  cx="18"
-                  cy="18"
-                  r="10"
-                  fill="none"
-                  class="stroke-current text-gray-200 dark:text-orange-100"
-                  stroke-width="1"
-                ></circle>
-                <!-- Progress Circle -->
-                <circle
-                  cx="18"
-                  cy="18"
-                  r="12"
-                  fill="none"
-                  class="stroke-current text-blue-600 dark:text-orange-300"
-                  stroke-width="2"
-                  stroke-dasharray="100"
-                ></circle>
-              </svg>
 
-              <!-- Percentage Text -->
+            <!-- Laravel Skill -->
+            <div
+              class="project-card bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:bg-slate-700/60 flex flex-col items-center space-y-4 text-center group"
+            >
               <div
-                class="absolute top-1/2 start-1/2 transform -translate-y-1/2 -translate-x-1/2"
+                class="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-red-500/20 to-red-600/20 group-hover:from-red-500/30 group-hover:to-red-600/30 transition-all duration-300"
               >
-                <i class="fa-solid fa-thumbs-up text-orange-400 text-3xl"></i>
+                <i
+                  class="fab fa-laravel text-red-500 text-4xl group-hover:text-red-400 transition-colors"
+                ></i>
               </div>
+              <h4 class="text-lg font-semibold text-white">Laravel</h4>
             </div>
-          </div>
-          <div
-            class="border border-gray-300 rounded-lg p-5 hover:bg-gray-100 hover:scale-y-105 hover:scale-x-105 duration-300 shadow-lg flex flex-col justify-center items-center"
-          >
-            <div class="flex items-center gap-10">
-              <h4 class="text-xl font-bold text-gray-500">JavaScript</h4>
-              <i class="fa-brands fa-js text-violet-600 text-3xl"></i>
-            </div>
-            <div class="relative size-40">
-              <svg
-                class="size-full -rotate-90"
-                viewBox="0 0 36 36"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <!-- Background Circle -->
-                <circle
-                  cx="18"
-                  cy="18"
-                  r="10"
-                  fill="none"
-                  class="stroke-current text-gray-200 dark:text-orange-100"
-                  stroke-width="1"
-                ></circle>
-                <!-- Progress Circle -->
-                <circle
-                  cx="18"
-                  cy="18"
-                  r="12"
-                  fill="none"
-                  class="stroke-current text-blue-600 dark:text-orange-300"
-                  stroke-width="2"
-                  stroke-dasharray="100"
-                ></circle>
-              </svg>
 
-              <!-- Percentage Text -->
+            <!-- Tailwind CSS Skill -->
+            <div
+              class="project-card bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:bg-slate-700/60 flex flex-col items-center space-y-4 text-center group"
+            >
               <div
-                class="absolute top-1/2 start-1/2 transform -translate-y-1/2 -translate-x-1/2"
+                class="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-teal-500/20 to-teal-600/20 group-hover:from-teal-500/30 group-hover:to-teal-600/30 transition-all duration-300"
               >
-                <i class="fa-solid fa-thumbs-up text-orange-400 text-3xl"></i>
+                <svg
+                  class="w-10 h-10 text-teal-500 group-hover:text-teal-400 transition-colors"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  ></path>
+                </svg>
               </div>
+              <h4 class="text-lg font-semibold text-white">Tailwind CSS</h4>
             </div>
-          </div>
-          <div
-            class="border border-gray-300 rounded-lg p-5 hover:bg-gray-100 hover:scale-y-105 hover:scale-x-105 duration-300 shadow-lg flex flex-col justify-center items-center"
-          >
-            <div class="flex items-center gap-10">
-              <h4 class="text-xl font-bold text-gray-500">PHP</h4>
-              <i class="fa-brands fa-php text-violet-600 text-3xl"></i>
-            </div>
-            <div class="relative size-40">
-              <svg
-                class="size-full -rotate-90"
-                viewBox="0 0 36 36"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <!-- Background Circle -->
-                <circle
-                  cx="18"
-                  cy="18"
-                  r="10"
-                  fill="none"
-                  class="stroke-current text-gray-200 dark:text-orange-100"
-                  stroke-width="1"
-                ></circle>
-                <!-- Progress Circle -->
-                <circle
-                  cx="18"
-                  cy="18"
-                  r="12"
-                  fill="none"
-                  class="stroke-current text-blue-600 dark:text-orange-300"
-                  stroke-width="2"
-                  stroke-dasharray="100"
-                ></circle>
-              </svg>
 
-              <!-- Percentage Text -->
+            <!-- Git Skill -->
+            <div
+              class="project-card bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:bg-slate-700/60 flex flex-col items-center space-y-4 text-center group"
+            >
               <div
-                class="absolute top-1/2 start-1/2 transform -translate-y-1/2 -translate-x-1/2"
+                class="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-orange-600/20 to-orange-700/20 group-hover:from-orange-600/30 group-hover:to-orange-700/30 transition-all duration-300"
               >
-                <i class="fa-solid fa-thumbs-up text-orange-400 text-3xl"></i>
+                <i
+                  class="fab fa-git-alt text-orange-600 text-4xl group-hover:text-orange-500 transition-colors"
+                ></i>
               </div>
+              <h4 class="text-lg font-semibold text-white">Git</h4>
             </div>
-          </div>
-          <div
-            class="border border-gray-300 rounded-lg p-5 hover:bg-gray-100 hover:scale-y-105 hover:scale-x-105 duration-300 shadow-lg flex flex-col justify-center items-center"
-          >
-            <div class="flex items-center gap-10">
-              <h4 class="text-xl font-bold text-gray-500">Laravel</h4>
-              <i class="fa-brands fa-laravel text-violet-600 text-3xl"></i>
-            </div>
-            <div class="relative size-40">
-              <svg
-                class="size-full -rotate-90"
-                viewBox="0 0 36 36"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <!-- Background Circle -->
-                <circle
-                  cx="18"
-                  cy="18"
-                  r="10"
-                  fill="none"
-                  class="stroke-current text-gray-200 dark:text-orange-100"
-                  stroke-width="1"
-                ></circle>
-                <!-- Progress Circle -->
-                <circle
-                  cx="18"
-                  cy="18"
-                  r="12"
-                  fill="none"
-                  class="stroke-current text-blue-600 dark:text-orange-300"
-                  stroke-width="2"
-                  stroke-dasharray="100"
-                ></circle>
-              </svg>
 
-              <!-- Percentage Text -->
+            <!-- MySQL Skill -->
+            <div
+              class="project-card bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:bg-slate-700/60 flex flex-col items-center space-y-4 text-center group"
+            >
               <div
-                class="absolute top-1/2 start-1/2 transform -translate-y-1/2 -translate-x-1/2"
+                class="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-700/20 to-blue-800/20 group-hover:from-blue-700/30 group-hover:to-blue-800/30 transition-all duration-300"
               >
-                <i class="fa-solid fa-thumbs-up text-orange-400 text-3xl"></i>
+                <i
+                  class="fas fa-database text-blue-600 text-4xl group-hover:text-blue-500 transition-colors"
+                ></i>
               </div>
+              <h4 class="text-lg font-semibold text-white">MySQL</h4>
+            </div>
+
+            <!-- Responsive Design Skill -->
+            <div
+              class="project-card bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:bg-slate-700/60 flex flex-col items-center space-y-4 text-center group"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-purple-500/20 to-purple-600/20 group-hover:from-purple-500/30 group-hover:to-purple-600/30 transition-all duration-300"
+              >
+                <i
+                  class="fas fa-mobile-alt text-purple-500 text-4xl group-hover:text-purple-400 transition-colors"
+                ></i>
+              </div>
+              <h4 class="text-lg font-semibold text-white">
+                Responsive Design
+              </h4>
             </div>
           </div>
         </div>
-        <!-- </div> -->
-      </div>
+      </section>
 
-      <!-- fifth div -->
-      <div
-        class="container mx-auto text-center p-10 pt-20 mt-5 fade-in"
+      <!-- Contact Section -->
+      <section
+        class="py-14 md:py-14 px-4 sm:px-8 lg:px-12 fade-in"
         id="contact"
-        class="section"
       >
-        <h3
-          class="md:text-4xl lg:text-4xl text-2xl font-bold mb-8 fade-in text-gray-500"
-        >
-          Get in Touch
-        </h3>
-        <form
-          class="mx-auto fade-in sm:w-3/4 lg:w-2/4"
-          action="https://formspree.io/f/mgvvjnvq"
-          method="POST"
-        >
-          <input
-            type="text"
-            placeholder="Your Name"
-            name="name"
-            class="w-full border border-gray-300 focus:outline-none focus:border-purple-400 focus:border-2 rounded-lg px-4 py-2 mb-4"
-            required
-          />
+        <div class="project-card container mx-auto max-w-5xl">
+          <!-- Section Header -->
+          <div class="text-center mb-16">
+            <span
+              class="text-blue-400 font-medium text-sm uppercase tracking-widest inline-block mb-2"
+              >Contact</span
+            >
+            <h2 class="text-xl font-bold mt-2 mb-6 text-white">Get in Touch</h2>
+            <div class="w-24 h-1 bg-indigo-500 mx-auto rounded-full mb-8"></div>
+            <p class="text-slate-300 max-w-2xl mx-auto text-base md:text-lg">
+              Have a project in mind or want to collaborate?
+            </p>
+          </div>
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            class="w-full border border-gray-300 focus:outline-none focus:border-purple-400 focus:border-2 rounded-lg px-4 py-2 mb-4"
-            required
-          />
-          <textarea
-            placeholder="Your Message"
-            rows="5"
-            name="message"
-            class="w-full border border-gray-300 focus:outline-none focus:border-purple-400 focus:border-2 rounded-lg px-4 py-2 mb-4"
-            required
-          ></textarea>
-          <button
-            type="submit"
-            class="bg-white text-gray-500 font-bold border-2 border-gray-500 px-8 py-3 rounded-full hover:bg-purple-500 hover:text-white duration-300"
-          >
-            Send Message
-          </button>
-        </form>
-      </div>
+          <div class="flex justify-center w-full">
+            <!-- Contact Form -->
+            <div
+              class="w-full max-w-2xl bg-slate-700/30 backdrop-blur-sm rounded-xl shadow-2xl p-6 sm:p-8 md:p-10 border border-slate-600 transform transition-all duration-300 hover:shadow-indigo-500/10"
+            >
+              <h3 class="text-2xl font-semibold mb-6 md:mb-8 text-white">
+                Send a Message
+              </h3>
+              <form
+                action="https://formspree.io/f/mgvvjnvq"
+                method="POST"
+                class="space-y-5 md:space-y-6"
+              >
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                  <div>
+                    <label
+                      for="name"
+                      class="text-sm font-medium text-slate-300 block mb-2"
+                      >Name</label
+                    >
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      placeholder="Your full name"
+                      class="w-full bg-slate-800/70 border border-slate-600 rounded-lg px-4 py-3 text-base text-white placeholder-slate-400 focus:ring-2 focus:ring-indigo-400 focus:border-indigo-500 outline-none transition-all duration-200"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="email"
+                      class="text-sm font-medium text-slate-300 block mb-2"
+                      >Email</label
+                    >
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="Your email address"
+                      class="w-full bg-slate-800/70 border border-slate-600 rounded-lg px-4 py-3 text-base text-white placeholder-slate-400 focus:ring-2 focus:ring-indigo-400 focus:border-indigo-500 outline-none transition-all duration-200"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label
+                    for="message"
+                    class="text-sm font-medium text-slate-300 block mb-2"
+                    >Message</label
+                  >
+                  <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Your message"
+                    rows="5"
+                    class="w-full bg-slate-800/70 border border-slate-600 rounded-lg px-4 py-3 text-base text-white placeholder-slate-400 focus:ring-2 focus:ring-indigo-400 focus:border-indigo-500 outline-none transition-all duration-200"
+                    required
+                  ></textarea>
+                </div>
+
+                <div class="flex items-center pt-2">
+                  <button
+                    type="submit"
+                    class="group py-3 px-6 rounded-lg text-blue-600 font-semibold border-2 border-blue-600 transition-all duration-300 shadow-sm hover:shadow-lg flex items-center justify-center sm:inline-flex transform hover:-translate-y-1"
+                  >
+                    Send Message
+                    <i class="fa-regular fa-paper-plane ml-2"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <!-- footer section -->
-    <footer class="border bg-gray-800 fade-in w-full">
-      <h1
-        class="md:text-4xl lg:text-4xl text-2xl font-bold mb-8 fade-in text-white text-center mt-2"
-      >
-        Contact Me
-      </h1>
-      <!-- <div class="flex justify-around items-center flex-wrap px-4 gap-4"> -->
-      <div class="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
-        <div class="flex items-center justify-center gap-5">
-          <i
-            class="fa-regular fa-envelope text-purple-700 text-3xl sm:text-3xl md:text-4xl lg:text-5xl"
-          ></i>
-          <h2 class="text-white text-lg">kaphlesabin789@gmail.com</h2>
+    <footer class="w-full py-6 text-white">
+      <div class="container mx-auto md:px-32">
+        <div class="grid gap-y-3">
+          <!-- Top Section with Logo and Tagline -->
+          <div
+            class="grid md:grid-cols-3 gap-x-6 gap-y-5 border-b border-slate-700 pb-4"
+          >
+            <!-- Logo and Tagline -->
+            <div
+              class="flex flex-col items-center md:items-start md:col-span-2"
+            >
+              <div class="text-xl font-bold text-white mb-2 flex items-center">
+                <div
+                  class="bg-indigo-600 w-8 h-7 rounded flex items-center justify-center mr-2 shadow-md"
+                >
+                  <span class="text-white font-bold text-sm">SK</span>
+                </div>
+                <span
+                  class="bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent"
+                  >Sabin Kaphle</span
+                >
+              </div>
+              <p
+                class="text-slate-300 text-center md:text-left max-w-md leading-tight text-sm"
+              >
+                Turning ideas into exceptional digital experiences. Building
+                solutions that make a difference.
+              </p>
+            </div>
+
+            <!-- Social Links -->
+            <div class="flex flex-col items-center md:items-end justify-start">
+              <h3 class="text-base font-semibold mb-3 text-white">
+                Connect With Me
+              </h3>
+              <div class="flex space-x-4">
+                <a
+                  href="https://www.facebook.com/sabin.kafle.56232"
+                  target="_blank"
+                  aria-label="Facebook"
+                  class="bg-slate-700 hover:bg-indigo-600 transition-all duration-300 w-9 h-9 rounded-full flex items-center justify-center shadow-md hover:shadow-indigo-500/30 hover:-translate-y-1"
+                >
+                  <i class="fa-brands fa-facebook-f text-sm"></i>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/sabin-kaphle-893b53237/"
+                  target="_blank"
+                  aria-label="LinkedIn"
+                  class="bg-slate-700 hover:bg-indigo-600 transition-all duration-300 w-9 h-9 rounded-full flex items-center justify-center shadow-md hover:shadow-indigo-500/30 hover:-translate-y-1"
+                >
+                  <i class="fa-brands fa-linkedin-in text-sm"></i>
+                </a>
+                <a
+                  href="https://github.com/MeSabin"
+                  target="_blank"
+                  aria-label="GitHub"
+                  class="bg-slate-700 hover:bg-indigo-600 transition-all duration-300 w-9 h-9 rounded-full flex items-center justify-center shadow-md hover:shadow-indigo-500/30 hover:-translate-y-1"
+                >
+                  <i class="fa-brands fa-github text-sm"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Information Section -->
+          <div class="border-b border-slate-700 pb-4">
+            <h3
+              class="text-base font-semibold mb-3 text-white relative inline-block"
+            >
+              Contact Me
+              <span
+                class="absolute -bottom-1 left-0 w-10 h-0.5 bg-indigo-500 rounded-full"
+              ></span>
+            </h3>
+
+            <div class="flex flex-col md:flex-row justify-between gap-4 mt-3">
+              <div class="flex items-center gap-3">
+                <div
+                  class="bg-slate-700/70 rounded p-2 text-blue-400 flex-shrink-0"
+                >
+                  <i class="fa-regular fa-envelope text-sm"></i>
+                </div>
+                <div>
+                  <p class="text-white font-medium text-xs mb-0.5">Email</p>
+                  <a
+                    href="mailto:kaphlesabin789@gmail.com"
+                    class="text-slate-300 hover:text-white transition-colors duration-300 text-sm"
+                    >kaphlesabin789@gmail.com</a
+                  >
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <div
+                  class="bg-slate-700/70 rounded p-2 text-blue-400 flex-shrink-0"
+                >
+                  <i class="fa-solid fa-phone text-sm"></i>
+                </div>
+                <div>
+                  <p class="text-white font-medium text-xs mb-0.5">Phone</p>
+                  <a
+                    href="tel:+9779867076920"
+                    class="text-slate-300 hover:text-white transition-colors duration-300 text-sm"
+                    >+977 9867076920</a
+                  >
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <div
+                  class="bg-slate-700/70 rounded p-2 text-blue-400 flex-shrink-0"
+                >
+                  <i class="fa-solid fa-location-dot text-sm"></i>
+                </div>
+                <div>
+                  <p class="text-white font-medium text-xs mb-0.5">Location</p>
+                  <p class="text-slate-300 text-sm">Kathmandu, Nepal</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom section with copyright -->
+          <div
+            class="flex flex-col md:flex-row justify-between items-center pt-2"
+          >
+            <div class="text-slate-400 text-xs mb-2 md:mb-0">
+              <span
+                >&copy; <span id="current-year">2025</span> Sabin Kaphle. All
+                rights reserved.</span
+              >
+            </div>
+          </div>
         </div>
-        <div class="flex justify-center items-center gap-4 pl-3">
-          <i
-            class="fa-solid fa-phone text-purple-700 text-3xl sm:text-3xl md:text-4xl lg:text-5xl"
-          ></i>
-          <h2 class="text-white text-lg">+977 9867076920</h2>
-        </div>
-        <div
-          class="flex justify-center md:justify-around md:mt-2 lg:justify-around items-center gap-6"
-        >
-          <a href="https://www.facebook.com/sabin.kafle.56232" target="_blank"
-            ><i class="fa-brands fa-facebook text-white text-4xl"></i
-          ></a>
-          <a
-            href="https://www.linkedin.com/in/sabin-kaphle-893b53237/"
-            target="_blank"
-            ><i class="fa-brands fa-linkedin text-white text-4xl"></i
-          ></a>
-        </div>
-      </div>
-      <div class="mt-6 text-white text-lg text-center pb-6">
-        <span>Copyright &copy</span
-        ><span class="current-year" id="current-year"></span>
-        <span>All rights reserved | Sabin Kaphle</span>
       </div>
     </footer>
   </body>
@@ -691,37 +1177,127 @@
     // get current year
     const currentDate = new Date();
     let year = document.getElementById("current-year");
-    year.innerText = currentDate.getFullYear();
+    if (year) {
+      year.innerText = currentDate.getFullYear();
+    }
 
-    // handle active link
-    let activeLink = document.querySelectorAll(".navbar-link");
-    let home = document.querySelector(".home");
-    activeLink.forEach((elem, index) => {
-      home.classList.add("active");
-      elem.addEventListener("click", function (e) {
-        activeLink.forEach((elem) => {
-          elem.classList.remove("active");
-        });
-        elem.classList.add("active");
-      });
-    });
-
-    // toggle navbar links
+    // toggle navbar links & icon
     let hamburger = document.querySelector(".hamburger");
     let menu = document.querySelector("#mobileMenu");
+    let menuIcon = hamburger.querySelector("i");
 
     hamburger.addEventListener("click", () => {
       menu.classList.toggle("hidden");
+      if (menu.classList.contains("hidden")) {
+        menuIcon.classList.remove("fa-times");
+        menuIcon.classList.add("fa-bars");
+      } else {
+        menuIcon.classList.remove("fa-bars");
+        menuIcon.classList.add("fa-times");
+      }
     });
 
-    let body = document.querySelector(".body");
+    // Close mobile menu when a link is clicked
+    const mobileNavLinks = menu.querySelectorAll("a.navbar-link");
+    mobileNavLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        menu.classList.add("hidden");
+        menuIcon.classList.remove("fa-times");
+        menuIcon.classList.add("fa-bars");
+      });
+    });
 
-    hamburger.addEventListener("click", (e) => {
-      if (menu.style.display == "none") {
-        console.log("menu items");
-      } else {
-        console.log("nothing");
+    // handle active link on scroll and click
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".navbar-link a");
+    const mobileNavListItems = document.querySelectorAll(
+      "#mobileMenu .navbar-link"
+    ); // For mobile menu
+    const desktopNavListItems = document.querySelectorAll(
+      "header .hidden.sm\\:inline-block .navbar-link"
+    ); // For desktop menu
+
+    function setActiveLink() {
+      let currentSectionId = "";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - sectionHeight / 3) {
+          currentSectionId = section.getAttribute("id");
+        }
+      });
+
+      // Desktop and Mobile links
+      [...desktopNavListItems, ...mobileNavListItems].forEach((li) => {
+        li.classList.remove("active");
+        // Check if the link's href matches the current section ID (or "home" for the first section)
+        const link = li.querySelector("a");
+        if (
+          link &&
+          (link.getAttribute("href") === `#${currentSectionId}` ||
+            (currentSectionId === "home" &&
+              link.getAttribute("href") === "#home"))
+        ) {
+          li.classList.add("active");
+        }
+      });
+
+      // Ensure "home" link is active by default or when at the top
+      if (!currentSectionId && pageYOffset < sections[0].offsetTop) {
+        document.querySelector(".navbar-link.home").classList.add("active");
+        mobileNavListItems.forEach((li) => {
+          if (li.classList.contains("home")) li.classList.add("active");
+        });
       }
+    }
+
+    window.addEventListener("scroll", setActiveLink);
+    document.addEventListener("DOMContentLoaded", setActiveLink); // Set active link on page load
+
+    // Handle click for active state (immediate feedback)
+    [...desktopNavListItems, ...mobileNavListItems].forEach((li) => {
+      li.addEventListener("click", function () {
+        [...desktopNavListItems, ...mobileNavListItems].forEach((item) =>
+          item.classList.remove("active")
+        );
+        this.classList.add("active");
+
+        // If it's a mobile link parent, also activate corresponding desktop link parent if exists
+        const linkHref = this.querySelector("a").getAttribute("href");
+        desktopNavListItems.forEach((desktopLi) => {
+          if (desktopLi.querySelector("a").getAttribute("href") === linkHref) {
+            desktopLi.classList.add("active");
+          }
+        });
+        mobileNavListItems.forEach((mobileLi) => {
+          if (mobileLi.querySelector("a").getAttribute("href") === linkHref) {
+            mobileLi.classList.add("active");
+          }
+        });
+      });
+    });
+
+    // Intersection Observer to trigger animations when scrolled into view
+    document.addEventListener("DOMContentLoaded", function () {
+      const projectCards = document.querySelectorAll(".project-card");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        }
+      );
+
+      projectCards.forEach((card) => {
+        observer.observe(card);
+      });
     });
   </script>
 </html>
