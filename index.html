@@ -167,12 +167,12 @@
   <body class="body bg-slate-900">
     <header
       id="header"
-      class="flex justify-between items-center px-32 shadow-indigo-500 border-b border-slate-600 h-20 fixed top-0 right-0 left-0 z-50 bg-slate-900"
+      class="flex justify-between items-center px-4 md:px-8 lg:px-32 shadow-indigo-500 border-b border-slate-600 h-20 fixed top-0 right-0 left-0 z-50 bg-slate-900"
     >
       <div>
         <a
           href="#home"
-          class="group flex items-center space-x-2 font-bold text-3xl cursor-pointer transition-all duration-300"
+          class="group flex items-center space-x-2 font-bold text-2xl md:text-3xl cursor-pointer transition-all duration-300"
         >
           <span
             class="bg-gradient-to-r from-blue-600 to-blue-400 p-2 rounded-lg text-white transform transition-all duration-300 group-hover:rotate-6 group-hover:scale-110"
@@ -193,13 +193,17 @@
           </span>
         </a>
       </div>
-      <div class="sm:hidden block hamburger cursor-pointer">
-        <i
-          class="fa-solid fa-bars text-2xl text-blue-600 transition-transform duration-300"
-        ></i>
+
+      <div class="sm:hidden block ml-auto">
+        <div class="hamburger cursor-pointer">
+          <i
+            class="fa-solid fa-bars text-2xl text-blue-600 transition-transform duration-300"
+          ></i>
+        </div>
       </div>
+
       <div class="hidden sm:inline-block">
-        <ul class="space-x-2">
+        <ul class="flex space-x-2">
           <li
             class="navbar-link home inline-block text-slate-300 cursor-pointer duration-200 pb-1 px-3"
           >
@@ -208,7 +212,7 @@
           <li
             class="navbar-link about inline-block text-slate-300 cursor-pointer duration-200 pb-1 px-3"
           >
-            <a href="#about" id="">About</a>
+            <a href="#about">About</a>
           </li>
           <li
             class="navbar-link projects inline-block text-slate-300 cursor-pointer duration-200 pb-1 px-3"
@@ -228,91 +232,111 @@
         </ul>
       </div>
 
-      <div
+     <div
         id="mobileMenu"
-        class="hidden absolute top-20 left-0 w-full shadow-xl z-40 sm:hidden"
+        class="hidden absolute top-20 left-0 w-full shadow-xl z-40 bg-slate-800 border-t border-slate-700 transform transition-transform duration-300 sm:hidden"
       >
-        <ul class="flex flex-col text-center">
-          <li class="py-3 border-b border-slate-100">
+        <ul class="flex flex-col">
+          <li class="border-b border-slate-700 transition-all duration-300 hover:bg-slate-700">
             <a
-              class="navbar-link home text-slate-700 font-medium px-3"
+              class="navbar-link home text-slate-200 font-medium px-6 py-4 flex items-center"
               href="#home"
-              >Home</a
+              ><i class="fa-solid fa-house mr-3 text-blue-400"></i>Home</a
             >
           </li>
-          <li class="py-3 border-b border-slate-100">
+          <li class="border-b border-slate-700 transition-all duration-300 hover:bg-slate-700">
             <a
-              class="navbar-link about text-slate-700 font-medium px-3"
+              class="navbar-link about text-slate-200 font-medium px-6 py-4 flex items-center"
               href="#about"
-              >About</a
+              ><i class="fa-solid fa-user mr-3 text-blue-400"></i>About</a
             >
           </li>
-          <li class="py-3 border-b border-slate-100">
+          <li class="border-b border-slate-700 transition-all duration-300 hover:bg-slate-700">
             <a
-              class="navbar-link projects text-slate-700 font-medium px-3"
+              class="navbar-link projects text-slate-200 font-medium px-6 py-4 flex items-center"
               href="#projects"
-              >Projects</a
+              ><i class="fa-solid fa-code mr-3 text-blue-400"></i>Projects</a
             >
           </li>
-          <li class="py-3 border-b border-slate-100">
+          <li class="border-b border-slate-700 transition-all duration-300 hover:bg-slate-700">
             <a
-              class="navbar-link skills text-slate-700 font-medium px-3"
+              class="navbar-link skills text-slate-200 font-medium px-6 py-4 flex items-center"
               href="#skills"
-              >Skills</a
+              ><i class="fa-solid fa-cogs mr-3 text-blue-400"></i>Skills</a
             >
           </li>
-          <li class="py-3">
+          <li class="transition-all duration-300 hover:bg-slate-700">
             <a
-              class="navbar-link contact text-slate-700 font-medium px-3"
+              class="navbar-link contact text-slate-200 font-medium px-6 py-4 flex items-center"
               href="#contact"
-              >Contact</a
+              ><i class="fa-solid fa-envelope mr-3 text-blue-400"></i>Contact</a
             >
           </li>
         </ul>
+        <div class="px-6 py-4 bg-slate-900 flex justify-center space-x-4">
+          <a href="#" class="text-slate-300 hover:text-blue-400 transition-colors duration-300">
+            <i class="fa-brands fa-github text-xl"></i>
+          </a>
+          <a href="#" class="text-slate-300 hover:text-blue-400 transition-colors duration-300">
+            <i class="fa-brands fa-linkedin text-xl"></i>
+          </a>
+          <a href="#" class="text-slate-300 hover:text-blue-400 transition-colors duration-300">
+            <i class="fa-brands fa-twitter text-xl"></i>
+          </a>
+        </div>
       </div>
     </header>
 
     <main class="" id="home-section">
       <section
-        class="section pt-36 md:pt-48 pb-16 md:pb-24 text-slate-800 min-h-[80vh] flex items-center"
+        class="section pt-24 md:pt-36 lg:pt-48 pb-12 md:pb-16 lg:pb-24 text-slate-800 min-h-[80vh] flex items-center"
         id="home"
       >
-        <div class="container px-32">
+        <div class="container px-4 md:px-8 lg:px-32 mx-auto">
           <div
-            class="flex items-center justify-between flex-wrap-reverse gap-10 fade-in"
+            class="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-10 fade-in"
           >
-            <div class="text-center md:text-left text-white">
-              <div class="greeting mb-4">
-                <span class="text-blue-600 font-bold text-3xl">Hi</span>
-                <div class="wave-hand text-4xl">👋</div>
-                <span class="text-blue-600 font-bold text-3xl">,I'm</span>
+            <div class="text-center md:text-left text-white w-full md:w-1/2">
+              <div
+                class="greeting mb-4 flex items-center justify-center md:justify-start"
+              >
+                <span class="text-blue-600 font-bold text-2xl md:text-3xl"
+                  >Hi</span
+                >
+                <div class="wave-hand text-3xl md:text-4xl mx-1">👋</div>
+                <span class="text-blue-600 font-bold text-2xl md:text-3xl"
+                  >,I'm</span
+                >
               </div>
 
-              <h1 class="name text-5xl font-bold mb-4" id="my-intro">
+              <h1
+                class="name text-4xl md:text-5xl font-bold mb-4"
+                id="my-intro"
+              >
                 Sabin Kaphle.
               </h1>
-              <div class="title text-yellow-600 font-bold text-3xl">
+              <div class="title text-yellow-600 font-bold text-2xl md:text-3xl">
                 FullStack Developer
               </div>
-              <div class="mt-4 sm:block md:block lg:block">
+              <div class="mt-4">
                 <p
-                  class="font-medium text-lg sm:text-xl md:text-xl text-slate-300 max-w-xl"
+                  class="font-medium text-base sm:text-lg md:text-xl text-slate-300 max-w-xl mx-auto md:mx-0"
                 >
                   Full-stack Web Developer skilled in Laravel, PHP, and turning
                   ideas into seamless digital experiences.
                 </p>
               </div>
-              <div class="mt-10">
+              <div class="mt-8 md:mt-10">
                 <a
                   href="#projects"
-                  class="p-3 rounded-lg border-2 border-blue-600 text-blue-600 font-semibold transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 inline-flex items-center"
+                  class="p-2 md:p-3 rounded-lg border-2 border-blue-600 text-blue-600 font-semibold transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 inline-flex items-center"
                   >Explore My Work
                   <i class="fa-solid fa-arrow-right ml-2"></i>
                 </a>
               </div>
             </div>
 
-            <div class="relative flex justify-center">
+            <div class="relative">
               <!-- Container with gradient border -->
               <div class="rounded-full p-1 bg-yellow-700 shadow-xl">
                 <!-- Image container -->
@@ -320,17 +344,17 @@
                   <img
                     src="profile.jpg"
                     alt="Sabin Kaphle"
-                    class="w-56 h-56 rounded-full object-cover"
+                    class="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover"
                   />
                 </div>
               </div>
 
               <!-- Experience badge -->
               <div
-                class="absolute -bottom-4 right-0 bg-gradient-to-r from-blue-600 to-blue-400 text-white text-center py-1 px-6 rounded-lg shadow-lg transform rotate-3 transition-transform hover:rotate-6 hover:scale-105"
+                class="absolute -bottom-4 right-8 bg-gradient-to-r from-blue-600 to-blue-400 text-white text-center py-1 px-4 md:px-6 rounded-lg shadow-lg transform rotate-3 transition-transform hover:rotate-6 hover:scale-105"
               >
-                <span class="block text-lg font-bold">1</span>
-                <span class="text-sm font-medium tracking-wide"
+                <span class="block text-base md:text-lg font-bold">1</span>
+                <span class="text-xs md:text-sm font-medium tracking-wide"
                   >Year Experience</span
                 >
               </div>
@@ -340,7 +364,7 @@
       </section>
 
       <!-- About Section -->
-      <section class="py-24 md:py-32 id="about">
+      <section class="py-24 md:py-32" id="about">
         <div class="container px-32">
           <div
             class="flex flex-col-reverse md:flex-row md:items-center md:justify-between gap-16"
@@ -500,16 +524,16 @@
               </div>
             </div>
 
-              <!-- Right Column - Image -->
-              <div
-                class="md:w-1/2 flex justify-center md:justify-end mb-10 md:mb-0"
-              >
-                <img
-                  src="coding.svg"
-                  alt="Coding Illustration"
-                  class="h-auto md:w-full sm:w w-3-full max-w-md"
-                />
-              </div>
+            <!-- Right Column - Image -->
+            <div
+              class="md:w-1/2 flex justify-center md:justify-end mb-10 md:mb-0"
+            >
+              <img
+                src="coding.svg"
+                alt="Coding Illustration"
+                class="h-auto md:w-full sm:w w-3-full max-w-md"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -760,10 +784,7 @@
       </section>
 
       <!-- Skills Section -->
-      <section
-        class="py-20 border-gray-200 md:py-24 fade-in"
-        id="skills"
-      >
+      <section class="py-20 border-gray-200 md:py-24 fade-in" id="skills">
         <div class="container mx-auto max-w-6xl">
           <div class="text-center fade-in mb-16">
             <span
